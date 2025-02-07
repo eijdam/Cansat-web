@@ -208,7 +208,7 @@ body {
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
-    color: var(--dark-bg); /* Ensure text inside article card is visible */
+    color: var(--dark-bg); 
 }
 
 .article-card:hover {
@@ -224,13 +224,13 @@ body {
 .article-card h3 {
     font-size: 1.3rem;
     margin-bottom: 10px;
-    color: var(--primary-color); /* Ensure title color is distinct */
+    color: var(--primary-color);
 }
 
 .article-card p {
     padding: 0 1rem 1rem;
     opacity: 0.8;
-    color: var(--primary-colo); /* Set the paragraph text color */
+    color: var(--primary-colo);
 }
 
 
@@ -347,15 +347,15 @@ body {
 }
 
 .team-member img {
-    width: 200px;  /* Fixed size for all images */
-    height: 200px; /* Fixed size for all images */
-    object-fit: cover;  /* Ensures the image covers the square area */
-    border-radius: 10px; /* Rounded corners */
+    width: 200px; 
+    height: 200px; 
+    object-fit: cover; 
+    border-radius: 10px; 
     margin-bottom: 15px;
 }
 
 .team-member .role {
-    color: white;  /* Set role text color to white */
+    color: white; 
 }
 
 
@@ -412,19 +412,19 @@ iframe {
 
 .about-us-images {
     display: flex;
-    gap: 20px; /* Space between the images */
-    justify-content: center; /* Center the images horizontally */
+    gap: 20px; 
+    justify-content: center;
 }
 
 .about-us-image {
-    width: 300px; /* Set a fixed width for all images */
-    height: 200px; /* Set a fixed height for all images */
-    object-fit: cover; /* Maintain aspect ratio and fill the set size */
+    width: 300px;
+    height: 200px; 
+    object-fit: cover; 
 }
 
 .about-us-section {
-    padding: 40px 20px; /* Increase top/bottom padding to make the section bigger */
-    background-color: #000000; /* Optional: Change background color for contrast */
+    padding: 40px 20px; 
+    background-color: #000000; 
 }
 
 

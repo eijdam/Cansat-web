@@ -5,7 +5,7 @@ from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 app.secret_key = "your_secret_key"
 
-# Flask-Mail Configuration
+
 app.config["MAIL_SERVER"] = "smtp.gmail.com"
 app.config["MAIL_PORT"] = 587
 app.config["MAIL_USE_TLS"] = True
@@ -15,15 +15,13 @@ app.config["MAIL_DEFAULT_SENDER"] = "zochovaspaceagency@gmail.com"
 
 mail = Mail(app)
 
-# Email validation regex
 EMAIL_REGEX = r"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
 
-# Set up the SQLite database
+
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///articles.db'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  # Disable modification tracking
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  
 db = SQLAlchemy(app)
 
-# Define the Article model (database table)
 class Article(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(100), nullable=False)
@@ -32,20 +30,20 @@ class Article(db.Model):
     def __repr__(self):
         return f"<Article {self.title}>"
 
-# Route to display a single article
+
 @app.route("/clanky/<int:article_id>")
 def article(article_id):
-    article = Article.query.get_or_404(article_id)  # Fetch article by ID, or 404 if not found
+    article = Article.query.get_or_404(article_id) 
     return render_template("article.html", article=article)
 
 @app.route("/")
 def home():
-    articles = Article.query.all()  # Fetch all articles
+    articles = Article.query.all()  
     return render_template("index.html", articles=articles)
 
 @app.route("/kontakty")
 def kontakty():
-    message = session.pop("message", None)  # Retrieve and clear the message
+    message = session.pop("message", None)  
     return render_template("kontakt.html", message=message)
 
 @app.route("/tim")
@@ -74,8 +72,8 @@ def send_message():
 
     return redirect(url_for("kontakty"))
 
-# Add this at the end of main.py
+
 if __name__ == "__main__":
     with app.app_context():
-        db.create_all()  # Create the tables
+        db.create_all() 
     app.run(debug=True)

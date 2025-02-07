@@ -1,0 +1,44 @@
+{% extends '_base.html' %}
+
+{% block content %}
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Vesmírny Program Mladých Koumákú</h1>
+            <p class="hero-subtitle">SPSE Zochova</p>
+            <a href="/kontakty" class="cta-button">Podporte nas</a>
+        </div>
+    </div>
+    <!-- About Us Section -->
+    <div class="about-us-section">
+        <div class="section-content">
+            <h2 class="section-title">O nás</h2>
+            <div class="section-text">
+                <p></p>Sme skupina žiakov z SPŠE Zochova, ktorí sú fascinovaní svetom satelitov a vesmíru. Naša vášeň pre túto tému nás priviedla k účasti v projekte CanSat, kde sme mali možnosť vytvoriť a vypustiť vlastný satelit. Tento projekt nám poskytol jedinečnú príležitosť učiť sa o technológii satelitov, ako aj o výzvach, ktoré súvisia s ich návrhom a prevádzkou. Prostredníctvom CanSatu sme získali cenné skúsenosti v oblasti inžinierstva, vedy a spolupráce, ktoré nám pomôžu v našich budúcich kariérach.</p>
+            </div>
+            <div class="about-us-images">
+                <img src="{{ url_for('static', filename='images/about-1.jpg') }}" alt="About Us Image 1" class="about-us-image">
+                <img src="{{ url_for('static', filename='images/about-2.jpg') }}" alt="About Us Image 2" class="about-us-image">
+                <img src="{{ url_for('static', filename='images/about-3.jpg') }}" alt="About Us Image 3" class="about-us-image">
+                <img src="{{ url_for('static', filename='images/about-4.jpg') }}" alt="About Us Image 4" class="about-us-image">
+            </div>
+        </div>
+    </div>
+
+    <!-- Featured Articles Section -->
+    <section class="featured-articles">
+        <div class="section-content">
+            <h2 class="section-title">Najnovšie články</h2>
+            <div class="articles-grid">
+                {% for article in articles %}
+                    <div class="article-card">
+                        <a href="{{ url_for('article', article_id=article.id) }}">
+                            <h3>{{ article.title }}</h3>
+                        </a>
+                        <p>{{ article.content[:30] }}...</p> <!-- Display a short snippet -->
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,16 @@
+<!-- article.html -->
+{% extends '_base.html' %}
+
+{% block content %}
+    <div class="content-wrapper" style="padding-top: 68rem;">
+        <div class="article-container">
+            <h2>{{ article.title }}</h2>
+            <p class="article-date">{{ article.date_posted }}</p>
+            <div class="article-content">
+                <p>This is an article with an image:</p>
+                <img src="{{ url_for('static', filename='images/alex.jpg') }}" alt="Example Image" />
+                {{ article.content | safe }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

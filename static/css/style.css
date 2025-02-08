@@ -14,6 +14,7 @@ html, body {
     padding: 0;
     width: 100%;
     height: 100%;
+    overflow-x: hidden; /* Prevent horizontal overflow */
 }
 
 body {
@@ -21,16 +22,53 @@ body {
     line-height: 1.6;
     background-color: var(--space-black);
     color: var(--light-text);
+    padding-top: 8rem;
 }
+
+/* Base image responsiveness */
+img {
+    max-width: 100%;  /* Ensure images don't exceed their container width */
+    height: auto;     /* Maintain aspect ratio */
+}
+
+/* Adjust images in specific sections */
+.hero-content img,
+.welcome-image,
+.about-us-image,
+.team-member img,
+.article-container img {
+    width: 100%;  /* Ensure all images fit within their containers */
+    height: auto; /* Maintain aspect ratio */
+}
+
+/* Featured Articles Section */
+.articles-grid img {
+    width: 100%;  /* Make article images responsive */
+    height: auto;
+}
+
+/* About Us Section */
+.about-us-images img {
+    width: 100%;
+    height: auto;
+}
+
+/* Team Section */
+.team-member img {
+    width: 250px;  /* Set a fixed width */
+    height: 250px;  /* Set a fixed height */
+    object-fit: cover;  /* Ensure images cover the area without stretching */
+    border-radius: 2%;  /* Optional: makes the images circular */
+}
+
 
 /* Containers for layout constraints */
 .container,
 .section-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1rem;
+    padding: 0 15px;
+    width: 100%;
+    box-sizing: border-box;
 }
-
 /* Top Bar and Logo */
 .top-bar {
     position: fixed;
@@ -38,31 +76,40 @@ body {
     width: 100%;
     z-index: 1000;
     background: var(--space-black);
+    box-sizing: border-box;
 }
 
+/* Top Bar Logo and Text Fix */
 .logo-bar {
     background: var(--primary-color);
     padding: 1rem;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;  /* Center the logo and text by default */
     align-items: center;
     position: relative;
+    width: 100%;
+    flex-direction: column;  /* Stack logo and text on top of each other */
+    text-align: center;  /* Ensure text is centered */
 }
+
+
 
 .logo-text {
     font-size: 2rem;
     font-weight: 700;
     color: var(--light-text);
     letter-spacing: 0.2em;
-    margin-left: 1rem;
+    margin-top: 0.5rem;
+    position: absolute;  /* Absolutely position the text */
+    left: 0;  /* Move the text to the left */
+    text-align: left;  /* Align the text to the left */
+    margin-left: 3rem;  /* Add some space from the left side */
 }
-
 .main-logo {
-    height: 4rem;
+    height: 8rem;
     width: auto;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    position: relative;  /* Remove absolute positioning */
+    margin-bottom: 0.5rem;
 }
 
 .secondary-nav {
@@ -73,13 +120,6 @@ body {
     align-items: center;
 }
 
-.secondary-nav a {
-    color: var(--light-text);
-    text-decoration: none;
-    font-size: 0.9rem;
-    opacity: 0.9;
-}
-
 /* Main Navigation */
 .main-nav {
     background: rgba(11, 61, 145, 0.95);
@@ -87,6 +127,7 @@ body {
     border-bottom: 2px solid rgba(255, 255, 255, 0.1);
     display: flex;
     justify-content: center;
+    width: 100%; /* Ensure it fits properly */
 }
 
 .nav-links {
@@ -94,6 +135,7 @@ body {
     justify-content: center;
     list-style: none;
     gap: 3rem;
+    margin-right: 3rem;
 }
 
 .nav-links a {
@@ -113,18 +155,18 @@ body {
     height: 100vh;
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
                 url('/static/images/CanSat.png');
-    background-size: cover;
-    background-position: center;
-    background-attachment: scroll;
+    background-size:cover;
+    background-position:center;
+    background-attachment: fixed;  /* Parallax effect for larger screens */
     margin-top: 7.5rem;
     position: relative;
+    width: 100%;
+    display: flex;  /* Flexbox for alignment */
+    justify-content: center; /* Horizontally center the content */
+    align-items: center; /* Vertically center the content */
 }
 
 .hero-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     text-align: center;
     width: 90%;
     max-width: 800px;
@@ -141,6 +183,7 @@ body {
     opacity: 0.9;
     margin-bottom: 2rem;
 }
+
 
 .cta-button {
     display: inline-block;
@@ -196,12 +239,15 @@ body {
     color: var(--light-text);
 }
 
+
+
+/* Featured Articles Section Fix */
 .articles-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
+    padding: 0 15px;  /* Add padding to prevent overflow */
 }
-
 .article-card {
     background-color: white;
     padding: 20px;
@@ -328,7 +374,7 @@ body {
 
 .team-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);  /* Three columns on large screens */
     gap: 30px;
     padding-top: 6rem;
 }
@@ -340,14 +386,6 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.team-member img {
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 10px;
-    margin-bottom: 15px;
-}
-
 .team-member .role {
     color: white;
 }
@@ -356,13 +394,12 @@ body {
     margin-top: 10px;
     border-radius: 5px;
 }
-
 /* Article Sections */
 .content-wrapper {
     display: flex;
     flex-direction: column;
     flex: 1;
-    padding-top: 11rem;
+    padding-top: 16rem;
     min-height: 100vh;
     align-items: center;
     justify-content: center;
@@ -399,12 +436,7 @@ body {
     margin-bottom: 20px;
 }
 
-.article-content img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin-top: 25px;
-}
+
 
 /* About Us Section */
 .about-us-images {
@@ -484,50 +516,59 @@ footer {
 
 /* Tablet adjustments (max-width: 1024px) */
 @media (max-width: 1024px) {
+    .team-grid {
+
+        grid-template-columns: repeat(2, 1fr); /* Two columns on tablets */
+    }
+
+    .team-member {
+        padding: 18px;
+    }
+    .articles-grid {
+            grid-template-columns: repeat(2, 1fr); /* Two columns for medium devices */
+        }
+    
     .nav-links {
         flex-direction: row;
         gap: 1.5rem;
+        margin-left: 3rem;
     }
+    
     .hero-title {
         font-size: 3rem;
     }
+    
     .hero-subtitle {
         font-size: 1.2rem;
     }
+    
     .container,
     .section-content {
         padding: 0 1rem;
+        width: 100%;
     }
+    .hero {
+        background-attachment: scroll;  /* Disable fixed background for tablets */
+    }
+    
 }
 
 /* Mobile adjustments (max-width: 768px) */
 @media (max-width: 768px) {
-    /* Top bar adjustments */
-    .logo-bar {
-        flex-direction: column;
-        align-items: center;
-        padding: 0.5rem;
+    .team-grid {
+        grid-template-columns: 1fr; /* Stack team members in a single column */
+        gap: 20px;
+        padding-top:6rem;
     }
-    .main-logo {
-        position: static;
-        height: 3rem;
-        margin-bottom: 0.5rem;
+
+    .team-member {
+        padding: 15px;
+        box-shadow: none;  /* Remove box-shadow on mobile for simplicity */
     }
-    .logo-text {
-        font-size: 1.5rem;
-        margin: 0.5rem 0;
-        text-align: center;
-    }
-    .secondary-nav {
-        display: none;
-    }
-    .main-nav {
-        padding: 0.5rem;
-    }
-    .nav-links {
-        flex-direction: column;
-        text-align: center;
-        gap: 0.5rem;
+
+    .team-member iframe {
+        margin-top: 5px;
+        height: 100px; /* Adjust iframe height on smaller screens */
     }
     .hero-title {
         font-size: 2.5rem;
@@ -535,11 +576,58 @@ footer {
     .hero-subtitle {
         font-size: 1.2rem;
     }
+    .cta-button {
+        padding: 1rem 2rem; /* Adjust button padding for small screens */
+    }
+    .articles-grid {
+        grid-template-columns: 1fr; /* Single column for smaller screens */
+    }
+    /* Top bar adjustments */
+    .logo-bar {
+        flex-direction: column;
+        align-items: center;
+        padding: 0.5rem;
+        text-align: center; /* Center text for mobile */
+    }
+    .main-logo {
+        height: 6rem;
+        margin-bottom: 0.5rem;
+    }
+    .logo-text {
+        font-size: 1.5rem;
+        margin: 0.5rem 0;
+        margin-left: 1rem;
+    }
+    .secondary-nav {
+        display: none;
+    }
+    .main-nav {
+        padding: 0.5rem;
+    }
+    .nav-links{
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+        margin-right: 6rem;
+    }
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+    .hero {
+        background-attachment: scroll;  /* Disable fixed background for tablets */
+    }
+    body{
+        padding-top: 10rem;
+    }
 }
 
 /* Further Mobile adjustments (max-width: 480px) */
 @media (max-width: 480px) {
     .nav-links {
+        margin-left: 3rem;
         flex-direction: column;
         text-align: center;
         gap: 1rem;
@@ -562,10 +650,6 @@ footer {
 @media (min-width: 1920px) {
     .container,
     .section-content {
-        max-width: 1400px;
-        margin: 0 auto;
-    }
-    .hero-title {
-        font-size: 4.5rem;
+        width: 70%;
     }
 }

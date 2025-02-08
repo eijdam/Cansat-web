@@ -14,7 +14,6 @@ html, body {
     padding: 0;
     width: 100%;
     height: 100%;
-    overflow-x: hidden; /* Prevent horizontal overflow */
 }
 
 body {
@@ -155,9 +154,9 @@ img {
     height: 100vh;
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
                 url('/static/images/CanSat.png');
-    background-size:cover;
-    background-position:center;
-    background-attachment: fixed;  /* Parallax effect for larger screens */
+    background-size: cover;
+    background-position: center;
+    background-attachment: static;  /* Parallax effect for larger screens */
     margin-top: 7.5rem;
     position: relative;
     width: 100%;

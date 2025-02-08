@@ -1,16 +1,35 @@
-<!-- article.html -->
 {% extends '_base.html' %}
 
 {% block content %}
-    <div class="content-wrapper" style="padding-top: 68rem;">
+    <section class="content-wrapper">
         <div class="article-container">
-            <h2>{{ article.title }}</h2>
-            <p class="article-date">{{ article.date_posted }}</p>
+            <h2>Exploring the Beauty of Nature</h2>
             <div class="article-content">
-                <p>This is an article with an image:</p>
-                <img src="{{ url_for('static', filename='images/alex.jpg') }}" alt="Example Image" />
-                {{ article.content | safe }}
+                <p>Nature has always been a source of inspiration and awe. From the towering mountains to the vast oceans, the beauty of our planet never ceases to amaze. In this article, we will explore some of the most breathtaking landscapes on Earth, all of which are fundamental parts of our environment and vital to the survival of countless species.</p>
+                
+                <h3>The Majestic Mountains</h3>
+                <p>Mountains are some of the most awe-inspiring features of our planet. Their towering peaks and rugged terrains symbolize strength and endurance. Whether covered in snow or draped in lush greenery, mountains hold a special place in our hearts. The Himalayas, the Alps, and the Andes are among the most famous mountain ranges that have drawn adventurers and nature enthusiasts for centuries.</p>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Mount_Everest_%28view_from_Pongri%29.jpg/800px-Mount_Everest_%28view_from_Pongri%29.jpg" alt="Mount Everest" style="max-width:100%; height:auto;" />
+                <p>Mount Everest, the tallest mountain on Earth, stands at an impressive 8,848 meters (29,029 feet) above sea level. It is a symbol of both beauty and challenge, attracting climbers from around the world.</p>
+                
+                <h3>The Tranquil Oceans</h3>
+                <p>Oceans cover more than 70% of the Earth's surface and are home to an incredibly diverse range of wildlife. Oceans not only provide us with resources like food and energy but also regulate the climate and weather patterns. The Pacific, Atlantic, Indian, Arctic, and Southern Oceans each have their own unique characteristics, with vast stretches of water teeming with life.</p>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Pacific_Ocean_%28topographic_map%29.jpg/800px-Pacific_Ocean_%28topographic_map%29.jpg" alt="Pacific Ocean" style="max-width:100%; height:auto;" />
+                <p>The Pacific Ocean, the largest and deepest ocean, is home to stunning coral reefs, majestic whales, and some of the most beautiful islands on Earth, such as the Hawaiian Islands and Fiji.</p>
+                
+                <h3>Forests and Woodlands</h3>
+                <p>Forests are the lungs of the Earth. They provide oxygen, shelter, and food for countless species. The tranquility of walking through a forest, surrounded by the sounds of birds and rustling leaves, is unmatched. Forests are crucial for maintaining biodiversity and regulating the climate. The Amazon Rainforest, the largest tropical rainforest, is one of the most important ecosystems on the planet.</p>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Los_San_Juanitos.jpg/800px-Los_San_Juanitos.jpg" alt="Forest Path" style="max-width:100%; height:auto;" />
+                <p>The Amazon Rainforest is often referred to as the "lungs of the Earth" because it produces 20% of the world's oxygen and is home to an incredible variety of plant and animal species. However, it faces constant threats due to deforestation and climate change.</p>
+
+                <h3>The Incredible Deserts</h3>
+                <p>Deserts, while often associated with heat and dryness, are some of the most unique ecosystems on the planet. They support a wide variety of life, from cacti to camels. Deserts can range from the scorching Sahara in Africa to the cool, vast desert landscapes of Antarctica, where some of the driest conditions on Earth are found.</p>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Sahara_desert_%28unsplash%29.jpg/800px-Sahara_desert_%28unsplash%29.jpg" alt="Sahara Desert" style="max-width:100%; height:auto;" />
+                <p>The Sahara Desert, the largest hot desert in the world, is known for its stunning sand dunes and extreme temperatures. Despite the harsh conditions, a variety of animals, including lizards, snakes, and even desert foxes, manage to thrive in this environment.</p>
+
+                <h3>Conclusion</h3>
+                <p>As we continue to appreciate the beauty of nature, it's important to remember the need to preserve these landscapes for future generations. Conservation efforts around the world are vital to ensuring that our planet remains a place of wonder and beauty for years to come. Whether it’s protecting mountain ecosystems, preserving the oceans, or conserving forests, each of us can play a part in safeguarding the environment and the incredible landscapes that we hold dear.</p>
             </div>
         </div>
-    </div>
+    </section>
 {% endblock %}

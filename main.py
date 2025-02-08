@@ -2,9 +2,9 @@ from flask import Flask, render_template, request, redirect, url_for, session
 import re
 import os
 from flask_mail import Mail, Message
-from flask_sqlalchemy import SQLAlchemy
 from dotenv import load_dotenv
 
+# Initialize the Flask app
 app = Flask(__name__)
 app.secret_key = os.getenv("SECRET_KEY", "your_secret_key")  # Better to use env var
 
@@ -22,40 +22,30 @@ mail = Mail(app)
 
 EMAIL_REGEX = r"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
 
-# Database configuration - using PostgreSQL for production
-DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///tmp/articles.db")
-if DATABASE_URL.startswith("postgres://"):
-    DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql://", 1)
+# Static articles (list of dictionaries)
+articles = [
+    {"id": 1, "title": "Article 1", "content": "This is the content of article 1."},
+    {"id": 2, "title": "Zaciatok", "content": "This is the content of article 2."},
+    {"id": 3, "title": "Article 3", "content": "This is the content of article 3."}
+]
 
-app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URL
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-db = SQLAlchemy(app)
-
-class Article(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(100), nullable=False)
-    content = db.Column(db.Text, nullable=False)
-
-    def __repr__(self):
-        return f"<Article {self.title}>"
+# Routes
+@app.route("/")
+def home():
+    return render_template("index.html", articles=articles)
 
 @app.route("/clanky/<int:article_id>")
 def article(article_id):
-    try:
-        article = Article.query.get_or_404(article_id)
-        return render_template("article.html", article=article)
-    except Exception as e:
-        print(f"Error fetching article: {str(e)}")
+    # Find article by ID
+    article = next((a for a in articles if a["id"] == article_id), None)
+    if article:
+        # For article 2, render a different template
+        if article_id == 2:
+            return render_template("article2.html", article=article)
+        else:
+            return render_template("article.html", article=article)
+    else:
         return "Article not found", 404
-
-@app.route("/")
-def home():
-    try:
-        articles = Article.query.all()
-        return render_template("index.html", articles=articles)
-    except Exception as e:
-        print(f"Error fetching articles: {str(e)}")
-        return render_template("index.html", articles=[])
 
 @app.route("/kontakty")
 def kontakty():
@@ -97,8 +87,5 @@ def send_message():
     
     return redirect(url_for("kontakty"))
 
-# For local development
 if __name__ == "__main__":
-    with app.app_context():
-        db.create_all()
-    app.run(host="0.0.0.0", port=8080)
+    app.run(debug=True)

@@ -2,15 +2,17 @@ from flask import Flask, render_template, request, redirect, url_for, session
 import re
 from flask_mail import Mail, Message
 from flask_sqlalchemy import SQLAlchemy
+from dotenv import load_dotenv
+
 app = Flask(__name__)
 app.secret_key = "your_secret_key"
-
+load_dotenv()
 
 app.config["MAIL_SERVER"] = "smtp.gmail.com"
 app.config["MAIL_PORT"] = 587
 app.config["MAIL_USE_TLS"] = True
-app.config["MAIL_USERNAME"] = "zochovaspaceagency@gmail.com"
-app.config["MAIL_PASSWORD"] = "wqdq edek wqhe uahl"
+app.config["MAIL_USERNAME"] = os.getenv("MAIL_USERNAME")
+app.config["MAIL_PASSWORD"] = os.getenv("MAIL_PASSWORD")
 app.config["MAIL_DEFAULT_SENDER"] = "zochovaspaceagency@gmail.com"
 
 mail = Mail(app)
@@ -18,7 +20,8 @@ mail = Mail(app)
 EMAIL_REGEX = r"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
 
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///articles.db'
+db_path = os.path.join(os.getenv("HOME", "/tmp"), "articles.db")
+app.config['SQLALCHEMY_DATABASE_URI'] = f"sqlite:///{db_path}"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  
 db = SQLAlchemy(app)
 
@@ -74,6 +77,4 @@ def send_message():
 
 
 if __name__ == "__main__":
-    with app.app_context():
-        db.create_all() 
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=8080)

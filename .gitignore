@@ -1,0 +1,38 @@
+# Python related
+*.pyc
+*.pyo
+__pycache__/
+.env
+
+# Virtual environments
+venv/
+env/
+*.venv
+
+# SQLite database
+*.sqlite3
+*.db
+instance/
+migrations/
+
+# Logs and cache
+logs/
+*.log
+*.out
+*.pid
+*.swp
+*.swo
+
+# VS Code and IDE files
+.vscode/
+.idea/
+*.iml
+
+# PyInstaller
+dist/
+build/
+*.spec
+
+# Vercel & Deployment
+.vercel/
+node_modules/

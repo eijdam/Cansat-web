@@ -52,9 +52,18 @@ def kontakty():
     message = session.pop("message", None)
     return render_template("kontakt.html", message=message)
 
+@app.route("/blog")
+def blog():
+    return render_template("blog.html", articles=articles)
+
+
 @app.route("/tim")
 def tim():
     return render_template("tim.html")
+
+@app.route("/sponsor")
+def sponsor():
+    return render_template("sponsor.html")
 
 @app.route("/send_message", methods=["POST"])
 def send_message():

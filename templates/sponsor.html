@@ -1,0 +1,38 @@
+{% extends '_base.html' %}
+
+{% block content %}
+<section class="sponsor-section">
+    <div class="container">
+        <h2>Naši Sponzori</h2>
+        <div class="sponsor-grid">
+            <!-- Sponsor 1 -->
+            <div class="sponsor">
+                <a href="https://www.apple.com" target="_blank">
+                    <img src="{{ url_for('static', filename='images/apple.jpg') }}" alt="Sponsor 1">
+                </a>
+            </div>
+
+            <!-- Sponsor 2 (Zochova) -->
+            <div class="sponsor">
+                <a href="https://www.zochova.sk" target="_blank">
+                    <img src="{{ url_for('static', filename='images/zochovalogo.png') }}" alt="Zochova">
+                </a>
+            </div>
+
+            <!-- Sponsor 3 (United Nations) -->
+            <div class="sponsor">
+                <a href="https://www.un.org" target="_blank">
+                    <img src="{{ url_for('static', filename='images/UN.png') }}" alt="United Nations">
+                </a>
+            </div>
+
+            <!-- Sponsor 4 (The Village of Bahon) -->
+            <div class="sponsor">
+                <a href="http://bahon.sk/" target="_blank">
+                    <img src="{{ url_for('static', filename='images/bahon.png') }}" alt="The Village of Bahon">
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

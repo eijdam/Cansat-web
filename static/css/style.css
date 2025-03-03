@@ -496,13 +496,21 @@ img {
     display: flex;
     gap: 20px;
     justify-content: center;
+    width: 100%; /* Makes it take up maximum width */
+    max-width: 100%; /* Ensures it doesn't exceed container limits */
 }
+
 
 .about-us-image {
     width: 300px;
     height: 200px;
     object-fit: cover;
 }
+
+.about-us-image img{
+    width: 25%;
+}
+
 
 .about-us-section {
     padding: 40px 20px;

@@ -10,26 +10,44 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <!-- Font Awesome for menu icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
 <body>
-
     <!-- Top Bar -->
     <div class="top-bar">
         <div class="logo-bar">
-            <img src="{{ url_for('static', filename='images/Zochova-NoBG.png') }}" alt="Zochova Logo" class="main-logo">
-            <span class="logo-text">VPMK</span>
-        </div>
-        <nav class="main-nav">
+            <div class="logo-container">
+                <span class="logo-text">VPMK</span>
+                <img src="{{ url_for('static', filename='images/Zochova-NoBG.png') }}" alt="Zochova Logo" class="main-logo">
+            </div>
+            
+            <!-- Desktop Navigation -->
             <ul class="nav-links">
                 <li><a href="/">Domov</a></li>
                 <li><a href="/tim">Tim</a></li>
-                <li><a href="/projekty">Projekty</a></li>
+                <li><a href="/sponsor">Sponzory</a></li>
+                <li><a href="/blog">Blog</a></li>
+                <li><a href="/kontakty">Kontakty</a></li>
+            </ul>
+            
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-button" id="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Dropdown Menu -->
+        <div class="mobile-dropdown" id="mobile-dropdown">
+            <ul class="nav-links">
+                <li><a href="/">Domov</a></li>
+                <li><a href="/tim">Tim</a></li>
                 <li><a href="/sponsor">Sponzory</a></li>
                 <li><a href="/blog">Blog</a></li>
                 <li><a href="/kontakty">Kontakt</a></li>
             </ul>
-        </nav>
+        </div>
     </div>
 
     <!-- kontent Block -->
@@ -52,7 +70,7 @@
                     </div>
                 </div>
             </div>
-            <p class="copyright">© 2025 Zochova blog | Všetky práva vyhradené.</p>
+            <p class="copyright">© 2025 VPMK | Všetky práva vyhradené.</p>
         </div>
     </footer>
 
@@ -61,7 +79,9 @@
         window.addEventListener('scroll', () => {
             const scrolled = window.pageYOffset;
             const hero = document.querySelector('.hero');
-            hero.style.backgroundPositionY = scrolled * 0.5 + 'px';
+            if (hero) {
+                hero.style.backgroundPositionY = scrolled * 0.5 + 'px';
+            }
         });
     </script>
 </body>

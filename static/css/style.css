@@ -9,11 +9,22 @@
     --accent-color: #FC3D21;
 }
 
-html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
+/* Base responsive settings */
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+@media (max-width: 768px) {
+    html {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    html {
+        font-size: 12px;
+    }
 }
 
 body {
@@ -21,7 +32,9 @@ body {
     line-height: 1.6;
     background-color: var(--space-black);
     color: var(--light-text);
-    padding-top: 8rem;
+    padding-top: 6rem;
+    overflow-x: hidden;
+    width: 100%;
 }
 
 /* Base image responsiveness */
@@ -60,14 +73,23 @@ img {
     border-radius: 2%;  /* Optional: makes the images circular */
 }
 
-
 /* Containers for layout constraints */
 .container,
 .section-content {
-    padding: 0 15px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
     width: 100%;
     box-sizing: border-box;
 }
+
+@media (max-width: 1024px) {
+    .container,
+    .section-content {
+        max-width: 90%;
+    }
+}
+
 /* Top Bar and Logo */
 .top-bar {
     position: fixed;
@@ -75,56 +97,55 @@ img {
     width: 100%;
     z-index: 1000;
     background: var(--space-black);
-    box-sizing: border-box;
+    transition: all 0.3s ease;
 }
 
 /* Logo Bar with Navigation */
 .logo-bar {
     background: var(--primary-color);
     display: flex;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    justify-content: space-between; /* Space between logo and navigation */
+    padding: 0.5rem 1rem;
+    justify-content: space-between;
     align-items: center;
     position: relative;
     width: 100%;
-
+    box-sizing: border-box;
 }
 
 .logo-container {
     display: flex;
     align-items: center;
+    gap: 0.5rem;
 }
 
 .logo-text {
-    font-size: 2rem;
+    font-size: clamp(1.2rem, 4vw, 2rem);
     font-weight: 700;
     color: var(--light-text);
-    letter-spacing: 0.2em;
-    margin-left: 1rem;
+    letter-spacing: 0.1em;
 }
 
 .main-logo {
+    height: clamp(3rem, 6vw, 6rem);
     width: auto;
-    height: 6rem;
 }
-
 
 /* Navigation in Logo Bar */
 .nav-links {
     display: flex;
     list-style: none;
-    gap: 2rem;
-    padding-right: 2rem;
+    gap: clamp(1rem, 2vw, 2rem);
     margin: 0;
+    padding: 0;
 }
 
 .nav-links a {
     color: var(--light-text);
     text-decoration: none;
     font-weight: 600;
-    font-size: 1.1rem;
+    font-size: clamp(0.9rem, 1.5vw, 1.1rem);
     transition: color 0.3s ease;
+    white-space: nowrap;
 }
 
 .nav-links a:hover {
@@ -182,37 +203,33 @@ img {
 
 /* Hero Section */
 .hero {
-    height: 100vh;
+    min-height: 100vh;
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
                 url('/static/images/CanSat.png');
     background-size: cover;
     background-position: center;
-    background-attachment: static;  /* Parallax effect for larger screens */
-    position: relative;
-    width: 100%;
-    display: flex;  /* Flexbox for alignment */
-    justify-content: center; /* Horizontally center the content */
-    align-items: center; /* Vertically center the content */
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
 }
 
 .hero-content {
     text-align: center;
-    width: 90%;
-    max-width: 800px;
+    max-width: min(800px, 90%);
+    margin: 0 auto;
 }
 
 .hero-title {
-    font-size: 4rem;
-    font-weight: 700;
+    font-size: clamp(2rem, 6vw, 4rem);
     margin-bottom: 1rem;
 }
 
 .hero-subtitle {
-    font-size: 1.5rem;
-    opacity: 0.9;
+    font-size: clamp(1rem, 3vw, 1.5rem);
     margin-bottom: 2rem;
 }
-
 
 .cta-button {
     display: inline-block;
@@ -267,8 +284,6 @@ img {
     margin-bottom: 20px;
     color: var(--light-text);
 }
-
-
 
 /* Featured Articles Section Fix */
 .articles-grid {
@@ -369,10 +384,12 @@ img {
 .contact-form input,
 .contact-form textarea {
     width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 16px;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border: 1px solid var(--gray-text);
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--light-text);
 }
 
 .contact-form textarea {
@@ -437,7 +454,6 @@ img {
     transition: transform 0.3s ease;
 }
 
-
 .team-image {
     width: 80px; /* Image size */
     height: 80px;
@@ -459,12 +475,9 @@ img {
 }
 
 .article-container {
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 20px;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: min(800px, 90%);
+    margin: 0 auto;
+    padding: 2rem 1rem;
 }
 
 .article-container h2 {
@@ -489,8 +502,6 @@ img {
     margin-bottom: 20px;
 }
 
-
-
 /* About Us Section */
 .about-us-images {
     display: flex;
@@ -511,15 +522,17 @@ img {
 
 /* Footer */
 footer {
-    background: var(--dark-bg);
-    padding: 4rem 0 2rem;
+    background: var(--primary-color);
+    padding: 3rem 1rem;
+    margin-top: 4rem;
 }
 
 .footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 2rem;
-    text-align: center;
 }
 
 .footer-logo {
@@ -527,15 +540,14 @@ footer {
 }
 
 .footer-logo-img {
-    height: 4rem;
-    width: auto;
+    max-width: 200px;
+    height: auto;
 }
 
 .footer-links {
     display: flex;
-    justify-content: center;
-    gap: 4rem;
-    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
 }
 
 .footer-section h3 {
@@ -545,8 +557,8 @@ footer {
 
 .social-links {
     display: flex;
+    flex-wrap: wrap;
     gap: 1rem;
-    justify-content: center;
 }
 
 .social-link {
@@ -564,7 +576,6 @@ footer {
     color: var(--gray-text);
     font-size: 0.9rem;
 }
-
 
 /* Sponsor Section */
 .sponsor-section {
@@ -591,7 +602,6 @@ footer {
     transform: scale(1.1); /* Slight zoom on hover */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Add shadow on hover */
 }
-
 
 /* Blog Section */
 .blog-section {
@@ -652,8 +662,6 @@ footer {
 .read-more-link:hover {
     text-decoration: underline;
 }
-
-
 
 /* Mobile adjustments (max-width: 768px) */
 @media (max-width: 768px) {
@@ -723,7 +731,6 @@ footer {
 /* Tablet adjustments (max-width: 1024px) */
 @media (max-width: 1024px) {
     .team-grid {
-
         grid-template-columns: repeat(2, 1fr); /* Two columns on tablets */
     }
     .logo-bar{
@@ -760,7 +767,6 @@ footer {
     
 }
 
-
 /* Further Mobile adjustments (max-width: 480px) */
 @media (max-width: 480px) {
     .nav-links {
@@ -779,6 +785,26 @@ footer {
     }
     .container {
         padding: 15px;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .top-bar,
+    .mobile-menu-button,
+    .footer {
+        display: none;
+    }
+
+    body {
+        padding-top: 0;
+        color: #000;
+        background: #fff;
+    }
+
+    .container {
+        max-width: 100%;
+        padding: 0;
     }
 }
 

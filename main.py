@@ -24,9 +24,9 @@ EMAIL_REGEX = r"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
 
 # Static articles (list of dictionaries)
 articles = [
-    {"id": 1, "title": "Article 1", "content": "This is the content of article 1."},
-    {"id": 2, "title": "Zaciatok", "content": "This is the content of article 2."},
-    {"id": 3, "title": "Article 3", "content": "This is the content of article 3."}
+    {"id": 1, "title": "O nás", "content": "Predstavenie tímu a nášho projektu"},
+    {"id": 2, "title": "Náš progres", "content": "Náš pokrok do 9.3. "},
+    {"id": 3, "title": "Pripravujeme", "content": "Tento článok bude zverejnený čoskoro"}
 ]
 
 # Routes

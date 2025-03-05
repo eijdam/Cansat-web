@@ -5,15 +5,15 @@
     <div class="hero">
         <div class="hero-content">
             <h1 class="hero-title">Vesmírny Program Mladých Koumákú</h1>
-            <p class="hero-subtitle">SPSE Zochova</p>
-            <a href="/kontakty" class="cta-button">Podporte nas</a>
+            <p class="hero-subtitle">SPŠE Zochova</p>
+            <a href="/kontakty" class="cta-button">Podporte nás!</a>
         </div>
     </div>
     <!-- About Us Section -->
     <div class="about-us-section">
         <div class="section-content">
             <div class="section-text">
-                <p>Sme koumaci zo SPŠE Zochova. Naša vášeň pre vesmír a rakety nás priviedla k účasti v Cansat, kde mame možnosť vytvoriť satelit o veľkoti plechovky. Cansat nám poskytol jedinečnú príležitosť učiť sa o technológii satelitov ako aj o výzvach, ktoré súvisia s ich návrhom a funkciou. Našou účasťou na Cansate objavujeme a zlepšujeme cenné skúsenosti v rádiokomunikácií, programování , elektrotechnike a tímovej spolupráci, ktoré nám pomôžu v našich budúcich kariérach.</p>
+                <p><b>Sme koumáci zo SPŠE Zochova 9. Naša vášeň pre vesmír a rakety nás priviedla k účasti v Cansat, kde máme možnosť vytvoriť satelit o veľkoti plechovky. Cansat nám poskytol jedinečnú príležitosť učiť sa o technológii satelitov ako aj o výzvach, ktoré súvisia s ich návrhom, vývinom a funkciou. Našou účasťou na Cansate objavujeme a zlepšujeme cenné skúsenosti v rádiokomunikácií, programování, elektrotechnike a tímovej spolupráci, ktoré nám pomôžu v našich budúcich kariérach.</b></p>
             </div>
             <div class="about-us-images">
                 <img src="{{ url_for('static', filename='images/about-1.jpg') }}" alt="About Us Image 1" class="about-us-image">
@@ -33,8 +33,8 @@
                     <div class="article-card">
                         <a href="{{ url_for('article', article_id=article.id) }}">
                             <h3>{{ article.title }}</h3>
-                        </a>
                         <p>{{ article.content[:30] }}...</p> <!-- Display a short snippet -->
+                        </a>
                     </div>
                 {% endfor %}
             </div>

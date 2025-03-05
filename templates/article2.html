@@ -1,16 +1,24 @@
 {% extends '_base.html' %}
 
 {% block content %}
-    <section class="content-wrapper">
-        <div class="article-container">
-            <h2>{{ article.title }}</h2>
-            <div class="article-content">
-                <p>{{ article.content }}</p>
-                <p>This is a different template for article 2. You can customize this content as needed.</p>
-                <h3>Special Section for Article 2</h3>
-                <p>This section is unique to article 2 and provides more information specific to it.</p>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Map_of_Europe_with_countries.PNG/800px-Map_of_Europe_with_countries.PNG" alt="Europe Map" style="max-width:100%; height:auto;" />
-            </div>
+<section class="content-wrapper">
+    <div class="article-container">
+        <h2>Náš pokrok do 9.3.</h2>
+        <div class="article-content">
+            <p>
+                Za posledné týždne sa nám podarilo značne pokročiť s vývojom nášho softvéru a hardvéru pre CanSat ale aj pozemnú stanicu.
+                <br><br>
+                Hlavné body nášho pokroku:
+                <ul>
+                    <li>Hotová webová stránka;</li>
+                    <li>Takmer hotové prepracovanie vizualizačného softvéru pozemnej stanice z programovacieho jazyka Python na C++;</li>
+                    <li>AI na analýzu obrazových dát;</li>
+                    <li>Rozpracovaný kód CanSatu;</li>
+                    <li>Dokončený 3D model satelitu;</li>
+                    <li>Prvá iterácia konštrukcie;</li>
+                </ul>
+            </p>
         </div>
-    </section>
+    </div>
+</section>
 {% endblock %}

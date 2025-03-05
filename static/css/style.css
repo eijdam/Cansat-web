@@ -525,6 +525,15 @@ text-decoration: none;
 
 .about-us-image img{
     width: 25%;
+<<<<<<< HEAD
+=======
+}
+
+
+.about-us-section {
+    padding: 40px 20px;
+    background: #000000;
+>>>>>>> a0bb717057a874f5b535d364bc051bdf4cfd68b2
 }
 
 

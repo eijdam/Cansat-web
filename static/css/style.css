@@ -27,8 +27,8 @@ body {
 
 /* Base image responsiveness */
 img {
-    max-width: 100%;  /* Ensure images don't exceed their container width */
-    height: auto;     /* Maintain aspect ratio */
+    max-width: 100%;  
+    height: auto;    
 }
 
 /* Adjust images in specific sections */
@@ -37,8 +37,8 @@ img {
 .about-us-image,
 .team-member img,
 .article-container img {
-    width: 100%;  /* Ensure all images fit within their containers */
-    height: auto; /* Maintain aspect ratio */
+    width: 100%;  
+    height: auto; 
 }
 
 /* Featured Articles Section */
@@ -797,6 +797,13 @@ footer {
         flex-direction: column; 
         align-items: center; 
     }
+
+    .articles-list {
+        display:flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
     body {
         padding-top: 6rem;
     }

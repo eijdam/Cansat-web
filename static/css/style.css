@@ -2,7 +2,7 @@
 :root {
     --primary-color: #0B3D91; 
     --secondary-color: #FC3D21; 
-    --dark-bg: #111111;
+    --dark-bg: #000000;
     --light-text: #ffffff;
     --gray-text: #B4B4B4;
     --space-black: #000000;
@@ -14,12 +14,13 @@ html, body {
     padding: 0;
     width: 100%;
     height: 100%;
+    overflow-x: hidden;
 }
 
 body {
     font-family: 'Montserrat', sans-serif;
     line-height: 1.6;
-    background-color: var(--space-black);
+    background-color: var(--dark-bg);
     color: var(--light-text);
     padding-top: 8rem;
 }
@@ -167,7 +168,9 @@ img {
 .mobile-dropdown .nav-links li {
     margin: 0.5rem 0;
 }
-
+.nav-links li a {
+    display: block;
+}
 /* Mobile menu button - ensure it's clickable */
 .mobile-menu-button {
     display: none;
@@ -178,6 +181,12 @@ img {
     cursor: pointer;
     padding: 0.5rem;
     z-index: 1002; /* Ensure button is above other elements */
+}
+.gradient-divider {
+    width: 100%;
+    height: 150px; /* Adjust the height of the gradient */
+    background: linear-gradient(to bottom, #000000, #ffffff); /* Black to light gray gradient */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Adds a soft shadow for more depth */
 }
 
 /* Hero Section */
@@ -238,6 +247,9 @@ img {
 .section-content {
     text-align: center;
 }
+.section-text{
+    font-size: 1.5rem; 
+}
 
 .section-title {
     font-size: 2.5rem;
@@ -258,7 +270,7 @@ img {
 
 /* Featured Articles Section */
 .featured-articles {
-    background-color: #e0e0e0;
+    background-color: #ffffff;
     padding: 50px 0;
 }
 
@@ -284,6 +296,10 @@ img {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
     color: var(--dark-bg);
+}
+
+.article-card a{
+text-decoration: none;
 }
 
 .article-card:hover {
@@ -512,10 +528,57 @@ img {
 }
 
 
+/* About Us Section */
 .about-us-section {
-    padding: 40px 20px;
+    position: relative;
+    padding: 40px 20px 100px;  /* Adjusted bottom padding */
     background: #000000;
+    background-image: url('/static/images/starry.jpg'); /* Starry background image */
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
 }
+
+/* Gradient overlay for About Us section */
+.about-us-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0) 70%); /* Adjusted the gradient stop */
+    z-index: 1;  /* Places the gradient above the background image but below the content */
+}
+
+/* Gradient divider between About Us and Featured Articles */
+.about-us-section::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;  /* Close the gap between the About Us section and the gradient divider */
+    left: 0;
+    width: 100%;
+    height: 120px; /* Slightly larger height for smoother transition */
+    background: linear-gradient(to top, #ffffff 0%, rgba(224, 224, 224, 0) 100%); /* Fixed gradient direction */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Adds a soft shadow for more depth */
+}
+
+/* Ensuring content is visible above the gradient */
+.section-content {
+    position: relative;
+    z-index: 2;  /* Ensures the section content is above the gradient overlay */
+}
+
+.featured-articles {
+    background: linear-gradient(to top, black, #ffffff); /* gradient starts from black at the footer */
+    padding-bottom: 400px; /* space before the footer */
+}
+
+footer {
+    background-color: black;
+    color: white;
+}
+
 
 /* Footer */
 footer {
@@ -535,7 +598,7 @@ footer {
 }
 
 .footer-logo-img {
-    height: 4rem;
+    height: 10rem;
     width: auto;
 }
 
@@ -576,7 +639,7 @@ footer {
 
 /* Sponsor Section */
 .sponsor-section {
-    padding: 50px 0;
+    padding: 200px 0;
     text-align: center;
     background-color: #f9f9f9; /* Light background */
 }
@@ -722,6 +785,12 @@ footer {
     }
     .hero {
         background-attachment: scroll;  /* Disable fixed background for tablets */
+    }
+    .about-us-images{
+        width: 100%;
+        max-width: none;
+        flex-direction: column; 
+        align-items: center; 
     }
     body {
         padding-top: 6rem;

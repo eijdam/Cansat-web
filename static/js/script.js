@@ -45,3 +45,4 @@ window.addEventListener('scroll', () => {
         hero.style.backgroundPositionY = scrolled * 0.5 + 'px';
     }
 });
+

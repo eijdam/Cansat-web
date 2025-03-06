@@ -540,7 +540,7 @@ text-decoration: none;
     position: relative;
     padding: 40px 20px 100px;  /* Adjusted bottom padding */
     background: #000000;
-    background-image: url('static/images/starry2.jpg'); 
+    background-image: url('/static/images/starry.jpg');
     background-size: cover;
     background-position: center;
     overflow: hidden;
@@ -743,12 +743,12 @@ footer {
 
     .team-member {
         padding: 15px;
-        box-shadow: none;  /* Remove box-shadow on mobile for simplicity */
+        box-shadow: none;  
     }
 
     .team-member iframe {
         margin-top: 5px;
-        height: 100px; /* Adjust iframe height on smaller screens */
+        height: 100px; 
     }
     .hero-title {
         font-size: 2.5rem;
@@ -757,12 +757,12 @@ footer {
         font-size: 1.2rem;
     }
     .cta-button {
-        padding: 1rem 2rem; /* Adjust button padding for small screens */
+        padding: 1rem 2rem; 
     }
     .articles-grid {
-        grid-template-columns: 1fr; /* Single column for smaller screens */
+        grid-template-columns: 1fr; 
     }
-    /* Top bar adjustments */
+    
     .logo-bar {
         padding: 1rem;
     }
@@ -798,6 +798,9 @@ footer {
         max-width: none;
         flex-direction: column; 
         align-items: center; 
+    }
+    .about-us-images img{
+        width: 100%;
     }
 
     .articles-list {

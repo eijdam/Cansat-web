@@ -3,29 +3,49 @@
 {% block content %}
     <section class="content-wrapper">
         <div class="article-container">
-            <h2>Kto sme?</h2>
+            <h2>{{ _('Kto sme?') if session.get('language', 'sk') == 'sk' else 'Who are we?' }}</h2>
             <div class="article-content">
-                <p>Sme CanSat tím tvorený žiakmi SPŠE Zochova 9. Naši čelnovia sú študenti tretieho a druhého ročníka, odborov Umelá inteligencia a Elektrotechnika.
-                    <br>Tím je celkovo tvorený šiestimi členmi: 
+                <p>
+                    {% if session.get('language', 'sk') == 'sk' %}
+                    Sme CanSat tím tvorený žiakmi SPŠE Zochova 9. Naši čelnovia sú študenti tretieho a druhého ročníka, odborov Umelá inteligencia a Elektrotechnika.
+                    <br>Tím je celkovo tvorený šiestimi členmi:
+                    {% else %}
+                    We are a CanSat team formed by students from SPŠE Zochova 9. Our members are third and second-year students from Artificial Intelligence and Electrical Engineering departments.
+                    <br>The team consists of six members:
+                    {% endif %}
                     <ul>
-                        <li><b>Lukáš Lubušký:</b> POC, tímový líder, hardvérový dizajn, softvér pozemnej stanice, PR</li>
-                        <li><b>Adam Minh Nhat Le Van:</b> webová stránka, softvér pre po-letová dátová analýza, PR</li>
-                        <li><b>Alex Robert Petrovič:</b> softvér pre po-letovú dátovú analýzu, CanSat softvér, PR</li>
-                        <li><b>Maroš Mašurik:</b> elektronický dizajn, rádiová komunikácia, hárdverový dizajn</li>
-                        <li><b>Jakub Peško:</b> CanSat softvér</li>
-                        <li><b>Matej Kňazovský:</b> hardvérový dizajn, PR</li>
+                        <li><b>Lukáš Lubušký:</b> {{ _('POC, tímový líder, hardvérový dizajn, softvér pozemnej stanice, PR') if session.get('language', 'sk') == 'sk' else 'POC, Team Leader, Hardware Design, Ground Station Software, PR' }}</li>
+                        <li><b>Adam Minh Nhat Le Van:</b> {{ _('webová stránka, softvér pre po-letová dátová analýza, PR') if session.get('language', 'sk') == 'sk' else 'Website, Post-flight Data Analysis Software, PR' }}</li>
+                        <li><b>Alex Robert Petrovič:</b> {{ _('softvér pre po-letovú dátovú analýzu, CanSat softvér, PR') if session.get('language', 'sk') == 'sk' else 'Post-flight Data Analysis Software, CanSat Software, PR' }}</li>
+                        <li><b>Maroš Mašurik:</b> {{ _('elektronický dizajn, rádiová komunikácia, hárdverový dizajn') if session.get('language', 'sk') == 'sk' else 'Electronic Design, Radio Communication, Hardware Design' }}</li>
+                        <li><b>Jakub Peško:</b> {{ _('CanSat softvér') if session.get('language', 'sk') == 'sk' else 'CanSat Software' }}</li>
+                        <li><b>Štefan Hudák:</b> {{ _('hardvérový dizajn, PR') if session.get('language', 'sk') == 'sk' else 'Hardware Design, PR' }}</li>
                     </ul>
+                    {% if session.get('language', 'sk') == 'sk' %}
                     Náš tím kombinuje rôzne odbornosti a zručnosti, ktoré sú nevyhnutné pre úspešnú realizáciu projektu. Každý člen má svoju špecifickú úlohu, no zároveň spolupracujeme na viacerých úlohách a vzájomne si pomáhame. Okrem technických aspektov, ako je vývoj hardvéru a softvéru, sa venujeme aj komunikácii s verejnosťou a prezentácii nášho projektu. Pravidelne sa stretávame, diskutujeme o problémoch a hľadáme najlepšie riešenia. Vďaka tejto spolupráci si nielen rozvíjame odborné znalosti, ale aj sa učíme efektívne pracovať v tíme, čo je neoceniteľná skúsenosť do budúcnosti.
+                    {% else %}
+                    Our team combines various expertise and skills essential for successful project implementation. Each member has their specific role, but we also collaborate on multiple tasks and help each other. Besides technical aspects like hardware and software development, we focus on public communication and project presentation. We meet regularly, discuss problems, and search for the best solutions. Through this collaboration, we not only develop professional knowledge but also learn to work effectively in a team, which is an invaluable experience for the future.
+                    {% endif %}
                 </p>
-                <h3>Čo je súťaž CanSat?</h3>
+                <h3>{{ _('Čo je súťaž CanSat?') if session.get('language', 'sk') == 'sk' else 'What is the CanSat competition?' }}</h3>
                 <p>
+                    {% if session.get('language', 'sk') == 'sk' %}
                     CanSat je prestížna slovenská súťaž organizovaná Slovenskou vesmírnou kanceláriou. Prvý ročník súťaže sa uskutočnil v roku 2024. Je to jedinečná príležitosť pre stredoškolskákov, aby si vyskúšali proces návrhu, vývoja a testovania malého satelitu vo formáte plechovky. Súťaž simuluje reálnu vesmírnu misiu v malom meradle, pričom tímy musia vytvoriť funkčné zariadenie, ktoré zvládne merania a prenos dát počas zostupu na Zem. Okrem technických zručností súťažiaci získavajú skúsenosti s tímovou spoluprácou, riadením projektu a riešením problémov v reálnom čase. Pre viac informácií môźe navštíviť oficiálnu stránku Slovenskej vesmírnej kancelárie <a href="https://spaceoffice.sk/cansat/">tu</a>.
+                    {% else %}
+                    CanSat is a prestigious Slovak competition organized by the Slovak Space Office. The first edition of the competition took place in 2024. It's a unique opportunity for high school students to experience the process of designing, developing, and testing a small satellite in a can format. The competition simulates a real space mission on a small scale, where teams must create a functional device capable of measurements and data transmission during descent to Earth. Besides technical skills, participants gain experience in teamwork, project management, and real-time problem-solving. For more information, you can visit the official Slovak Space Office website <a href="https://spaceoffice.sk/cansat/">here</a>.
+                    {% endif %}
                 </p>
-                <h3>Naša sekundárna misia</h3>
+                <h3>{{ _('Naša sekundárna misia') if session.get('language', 'sk') == 'sk' else 'Our Secondary Mission' }}</h3>
                 <p>
+                    {% if session.get('language', 'sk') == 'sk' %}
                     Naša sekundárna misia sa zameriava na ochranu prírodného prostredia, najmä lesov. Na spodnej časti CanSatu je umiestnená vysokorozlišujúca kamera, ktorá počas letu sníma povrch krajiny. Tieto snímky sa následne cez rádiovú komunikáciu prenesú na pozemnú stanicu, kde ich po pristátí analyzujeme. Cieľom je automaticky identifikovať oblasti pokryté lesom a porovnať ich s odlesnenými plochami. Táto metóda nám umožní sledovať dlhodobé trendy deforestácie a odhadovať škody spôsobené prírodnými katastrofami, ako sú víchrice či povodne.
                     <br><br>
                     Okrem monitorovania lesov má však naša misia široký potenciál aj na ďalšie využitie. V budúcnosti by sme mohli rozšíriť systém spracovania dát o pokročilé metódy umelej inteligencie, čím by sa zvýšila presnosť analýzy zmien v krajine. Podobný prístup by sa dal využiť aj na monitorovanie poľnohospodárskych oblastí, sledovanie mestského rozvoja alebo dokonca na identifikáciu nelegálnych skládok odpadu. Týmto spôsobom by sa náš projekt mohol stať cenným nástrojom nielen pre výskum a ochranu životného prostredia, ale aj pre organizácie zaoberajúce sa ekologickým monitorovaním a udržateľným rozvojom.
+                    {% else %}
+                    Our secondary mission focuses on protecting the natural environment, especially forests. A high-resolution camera is mounted on the bottom of the CanSat, which captures the surface of the landscape during flight. These images are then transmitted via radio communication to the ground station, where we analyze them after landing. The goal is to automatically identify forest-covered areas and compare them with deforested areas. This method allows us to track long-term deforestation trends and estimate damage caused by natural disasters such as storms or floods.
+                    <br><br>
+                    Beyond forest monitoring, our mission has broad potential for other applications. In the future, we could expand the data processing system with advanced artificial intelligence methods, increasing the accuracy of landscape change analysis. A similar approach could be used to monitor agricultural areas, track urban development, or even identify illegal waste dumps. This way, our project could become a valuable tool not only for environmental research and protection but also for organizations involved in ecological monitoring and sustainable development.
+                    {% endif %}
                 </p>
             </div>
         </div>

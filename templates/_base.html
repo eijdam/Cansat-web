@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ session.get('language', 'sk') }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,11 +25,17 @@
             
             <!-- Desktop Navigation -->
             <ul class="nav-links">
-                <li><a href="/">Domov</a></li>
-                <li><a href="/tim">Tím</a></li>
-                <li><a href="/sponsor">Sponzory</a></li>
+                <li><a href="/">{{ _('Domov') if session.get('language', 'sk') == 'sk' else 'Home' }}</a></li>
+                <li><a href="/tim">{{ _('Tím') if session.get('language', 'sk') == 'sk' else 'Team' }}</a></li>
+                <li><a href="/sponsor">{{ _('Sponzory') if session.get('language', 'sk') == 'sk' else 'Sponsors' }}</a></li>
                 <li><a href="/blog">Blog</a></li>
-                <li><a href="/kontakty">Kontakty</a></li>
+                <li style="display: flex; align-items: center; gap: 15px;">
+                    <a href="/kontakty">{{ _('Kontakty') if session.get('language', 'sk') == 'sk' else 'Contact' }}</a>
+                    <div class="language-switcher">
+                        <a href="{{ url_for('set_language', language='sk') }}" class="sk" title="Slovensky"></a>
+                        <a href="{{ url_for('set_language', language='en') }}" class="en" title="English"></a>
+                    </div>
+                </li>
             </ul>
             
             <!-- Mobile Menu Button -->
@@ -41,11 +47,17 @@
         <!-- Mobile Dropdown Menu -->
         <div class="mobile-dropdown" id="mobile-dropdown">
             <ul class="nav-links">
-                <li><a href="/">Domov</a></li>
-                <li><a href="/tim">Tím</a></li>
-                <li><a href="/sponsor">Sponzory</a></li>
+                <li><a href="/">{{ _('Domov') if session.get('language', 'sk') == 'sk' else 'Home' }}</a></li>
+                <li><a href="/tim">{{ _('Tím') if session.get('language', 'sk') == 'sk' else 'Team' }}</a></li>
+                <li><a href="/sponsor">{{ _('Sponzory') if session.get('language', 'sk') == 'sk' else 'Sponsors' }}</a></li>
                 <li><a href="/blog">Blog</a></li>
-                <li><a href="/kontakty">Kontakt</a></li>
+                <li style="display: flex; align-items: center; justify-content: center;">
+                    <a href="/kontakty">{{ _('Kontakty') if session.get('language', 'sk') == 'sk' else 'Contact' }}</a>
+                    <div class="language-switcher">
+                        <a href="{{ url_for('set_language', language='sk') }}" class="sk" title="Slovensky"></a>
+                        <a href="{{ url_for('set_language', language='en') }}" class="en" title="English"></a>
+                    </div>
+                </li>
             </ul>
         </div>
     </div>
@@ -61,7 +73,7 @@
             </div>
             <div class="footer-links">
                 <div class="footer-section">
-                    <h3>Sledujte nás</h3>
+                    <h3>{{ _('Sledujte nás') if session.get('language', 'sk') == 'sk' else 'Follow us' }}</h3>
                     <div class="social-links">
                         <a href="https://www.tiktok.com/@cansatkoumaci" class="social-link">Tiktok</a>
                         <a href="#" class="social-link">Instagram</a>
@@ -70,7 +82,7 @@
                     </div>
                 </div>
             </div>
-            <p class="copyright">© 2025 VPMK | Všetky práva vyhradené.</p>
+            <p class="copyright">© 2025 VPMK | {{ _('Všetky práva vyhradené') if session.get('language', 'sk') == 'sk' else 'All rights reserved' }}.</p>
         </div>
     </footer>
 

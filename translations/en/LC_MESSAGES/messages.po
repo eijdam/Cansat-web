@@ -1,0 +1,172 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: CanSat Web\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-03-19 12:00+0100\n"
+"PO-Revision-Date: 2024-03-19 12:00+0100\n"
+"Last-Translator: Your Name <your.email@example.com>\n"
+"Language-Team: English\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+# Article translations
+msgid "Kto sme?"
+msgstr "Who are we?"
+
+msgid "Čo je súťaž CanSat?"
+msgstr "What is the CanSat competition?"
+
+msgid "Naša sekundárna misia"
+msgstr "Our Secondary Mission"
+
+# Team member roles
+msgid "POC, tímový líder, hardvérový dizajn, softvér pozemnej stanice, PR"
+msgstr "POC, Team Leader, Hardware Design, Ground Station Software, PR"
+
+msgid "webová stránka, softvér pre po-letová dátová analýza, PR"
+msgstr "Website, Post-flight Data Analysis Software, PR"
+
+msgid "softvér pre po-letovú dátovú analýzu, CanSat softvér, PR"
+msgstr "Post-flight Data Analysis Software, CanSat Software, PR"
+
+msgid "elektronický dizajn, rádiová komunikácia, hárdverový dizajn"
+msgstr "Electronic Design, Radio Communication, Hardware Design"
+
+msgid "CanSat softvér"
+msgstr "CanSat Software"
+
+msgid "hardvérový dizajn, PR"
+msgstr "Hardware Design, PR"
+
+# Sponsor section
+msgid "Naši sponzori:"
+msgstr "Our Sponsors:"
+
+msgid "Logo Zochova"
+msgstr "Zochova Logo"
+
+msgid "Domov"
+msgstr "Home"
+
+msgid "Tím"
+msgstr "Team"
+
+msgid "Sponzory"
+msgstr "Sponsors"
+
+msgid "Kontakty"
+msgstr "Contact"
+
+msgid "Sledujte nás"
+msgstr "Follow us"
+
+msgid "Všetky práva vyhradené"
+msgstr "All rights reserved"
+
+msgid "All fields are required."
+msgstr "All fields are required."
+
+msgid "Message must be at least 10 characters long."
+msgstr "Message must be at least 10 characters long."
+
+msgid "Invalid email address."
+msgstr "Invalid email address."
+
+msgid "New message from contact form"
+msgstr "New message from contact form"
+
+msgid "Name"
+msgstr "Name"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Message"
+msgstr "Message"
+
+msgid "Message was sent successfully."
+msgstr "Message was sent successfully."
+
+msgid "An error occurred while sending the message."
+msgstr "An error occurred while sending the message."
+
+msgid "Vesmírny Program Mladých Koumákú"
+msgstr "Space Program of Young Innovators"
+
+msgid "Podporte nás!"
+msgstr "Support us!"
+
+msgid "Najnovšie články"
+msgstr "Latest Articles"
+
+msgid "Kontaktujte nás"
+msgstr "Contact Us"
+
+msgid "Ak máte akékoľvek otázky alebo potrebujete viac informácií, neváhajte nás kontaktovať."
+msgstr "If you have any questions or need more information, don't hesitate to contact us."
+
+msgid "Telefón:"
+msgstr "Phone:"
+
+msgid "Adresa:"
+msgstr "Address:"
+
+msgid "Odoslať"
+msgstr "Send"
+
+msgid "O našom projekte"
+msgstr "About Our Project"
+
+msgid "Sme koumáci zo SPŠE Zochova 9. Naša vášeň pre vesmír a rakety nás priviedla k účasti v Cansat, kde máme možnosť vytvoriť satelit o veľkoti plechovky. Cansat nám poskytol jedinečnú príležitosť učiť sa o technológii satelitov ako aj o výzvach, ktoré súvisia s ich návrhom, vývinom a funkciou. Našou účasťou na Cansate objavujeme a zlepšujeme cenné skúsenosti v rádiokomunikácií, programování, elektrotechnike a tímovej spolupráci, ktoré nám pomôžu v našich budúcich kariérach."
+msgstr "We are innovator students from SPŠE Zochova 9. Our passion for space and rockets led us to participate in Cansat, where we have the opportunity to create a can-sized satellite. Cansat has provided us with a unique opportunity to learn about satellite technology as well as the challenges associated with their design, development, and function. Through our participation in Cansat, we are discovering and improving valuable experience in radio communication, programming, electrical engineering, and teamwork that will help us in our future careers."
+
+msgid "Čítať viac"
+msgstr "Read more"
+
+msgid "Tímový líder, programátor"
+msgstr "Team Leader, Programmer"
+
+msgid "Programátor"
+msgstr "Programmer"
+
+msgid "Rádiová komunikácia, elektronický dizajn"
+msgstr "Radio Communication, Electronic Design"
+
+msgid "Programátor, webová stránka"
+msgstr "Programmer, Website"
+
+msgid "Pripravujeme"
+msgstr "Coming Soon"
+
+msgid "Náš pokrok do 9.3."
+msgstr "Our Progress until March 9"
+
+msgid "SPŠE Zochova 9 je naša domovská škola, ktorá nám poskytuje priestory, vybavenie a podporu pri realizácii projektu. Vďaka ich podpore môžeme rozvíjať naše technické zručnosti a pracovať na inovatívnych riešeniach."
+msgstr "SPŠE Zochova 9 is our home school, providing us with facilities, equipment, and support for project implementation. Thanks to their support, we can develop our technical skills and work on innovative solutions."
+
+msgid "Za posledné týždne sa nám podarilo značne pokročiť s vývojom nášho softvéru a hardvéru pre CanSat ale aj pozemnú stanicu."
+msgstr "Over the past few weeks, we have made significant progress in developing our software and hardware for both CanSat and the ground station."
+
+msgid "Hlavné body nášho pokroku:"
+msgstr "Main points of our progress:"
+
+msgid "Hotová webová stránka"
+msgstr "Website completed"
+
+msgid "Takmer hotové prepracovanie vizualizačného softvéru pozemnej stanice z programovacieho jazyka Python na C++"
+msgstr "Ground station visualization software rework from Python to C++ almost completed"
+
+msgid "AI na analýzu obrazových dát"
+msgstr "AI for image data analysis"
+
+msgid "Rozpracovaný kód CanSatu"
+msgstr "CanSat code in development"
+
+msgid "Dokončený 3D model satelitu"
+msgstr "3D model of the satellite completed"
+
+msgid "Prvá iterácia konštrukcie"
+msgstr "First iteration of construction" 

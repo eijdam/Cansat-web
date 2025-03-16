@@ -4,16 +4,16 @@
     <!-- Hero Section -->
     <div class="hero">
         <div class="hero-content">
-            <h1 class="hero-title">Vesmírny Program Mladých Koumákú</h1>
+            <h1 class="hero-title">{{ _('Vesmírny Program Mladých Koumákú') }}</h1>
             <p class="hero-subtitle">SPŠE Zochova</p>
-            <a href="/kontakty" class="cta-button">Podporte nás!</a>
+            <a href="/kontakty" class="cta-button">{{ _('Podporte nás!') }}</a>
         </div>
     </div>
     <!-- About Us Section -->
     <div class="about-us-section">
         <div class="section-content">
             <div class="section-text">
-                <p><b>Sme koumáci zo SPŠE Zochova 9. Naša vášeň pre vesmír a rakety nás priviedla k účasti v Cansat, kde máme možnosť vytvoriť satelit o veľkoti plechovky. Cansat nám poskytol jedinečnú príležitosť učiť sa o technológii satelitov ako aj o výzvach, ktoré súvisia s ich návrhom, vývinom a funkciou. Našou účasťou na Cansate objavujeme a zlepšujeme cenné skúsenosti v rádiokomunikácií, programování, elektrotechnike a tímovej spolupráci, ktoré nám pomôžu v našich budúcich kariérach.</b></p>
+                <p><b>{{ _('Sme koumáci zo SPŠE Zochova 9. Naša vášeň pre vesmír a rakety nás priviedla k účasti v Cansat, kde máme možnosť vytvoriť satelit o veľkoti plechovky. Cansat nám poskytol jedinečnú príležitosť učiť sa o technológii satelitov ako aj o výzvach, ktoré súvisia s ich návrhom, vývinom a funkciou. Našou účasťou na Cansate objavujeme a zlepšujeme cenné skúsenosti v rádiokomunikácií, programování, elektrotechnike a tímovej spolupráci, ktoré nám pomôžu v našich budúcich kariérach.') }}</b></p>
             </div>
             <div class="about-us-images">
                 <img src="{{ url_for('static', filename='images/about-1.jpg') }}" alt="About Us Image 1" class="about-us-image">
@@ -27,13 +27,13 @@
     <!-- Featured Articles Section -->
     <section class="featured-articles">
         <div class="section-content">
-            <h2 class="section-title">Najnovšie články</h2>
+            <h2 class="section-title">{{ _('Najnovšie články') }}</h2>
             <div class="articles-grid">
                 {% for article in articles %}
                     <div class="article-card">
                         <a href="{{ url_for('article', article_id=article.id) }}">
                             <h3>{{ article.title }}</h3>
-                        <p>{{ article.content[:30] }}...</p> <!-- Display a short snippet -->
+                            <p>{{ article.content[:30] }}...</p>
                         </a>
                     </div>
                 {% endfor %}

@@ -9,9 +9,11 @@
                     <div class="article-preview">
                         <a href="{{ url_for('article', article_id=article.id) }}">
                             <h3>{{ article.title }}</h3>
-                        <p>{{ article.content[:150] }}...</p> <!-- Display a short snippet -->
+                            <p>{{ article.content[:150] }}...</p>
                         </a>
-                        <a href="{{ url_for('article', article_id=article.id) }}" class="read-more-link">Čítať viac</a>
+                        <a href="{{ url_for('article', article_id=article.id) }}" class="read-more-link">
+                            {{ _('Čítať viac') if session.get('language', 'sk') == 'sk' else 'Read more' }}
+                        </a>
                     </div>
                 {% endfor %}
             </div>

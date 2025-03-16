@@ -27,8 +27,8 @@ body {
 
 /* Base image responsiveness */
 img {
-    max-width: 100%;  /* Ensure images don't exceed their container width */
-    height: auto;     /* Maintain aspect ratio */
+    max-width: 100%;  
+    height: auto;    
 }
 
 /* Adjust images in specific sections */
@@ -37,8 +37,8 @@ img {
 .about-us-image,
 .team-member img,
 .article-container img {
-    width: 100%;  /* Ensure all images fit within their containers */
-    height: auto; /* Maintain aspect ratio */
+    width: 100%;  
+    height: auto; 
 }
 
 /* Featured Articles Section */
@@ -49,8 +49,9 @@ img {
 
 /* About Us Section */
 .about-us-images img {
-    width: 100%;
-    height: auto;
+   width: 25%;
+   height: auto;
+   border-radius: 5%;
 }
 
 /* Team Section */
@@ -249,6 +250,7 @@ img {
 }
 .section-text{
     font-size: 1.5rem; 
+    padding-bottom: 2rem;
 }
 
 .section-title {
@@ -509,9 +511,9 @@ text-decoration: none;
 /* About Us Section */
 .about-us-images {
     display: flex;
-    gap: 20px;
+    gap: 1rem;
     justify-content: center;
-    width: 100%; /* Makes it take up maximum width */
+    width: 100%; /* Makes it take up maximum width */ 
     max-width: 100%; /* Ensures it doesn't exceed container limits */
 }
 
@@ -538,7 +540,7 @@ text-decoration: none;
     position: relative;
     padding: 40px 20px 100px;  /* Adjusted bottom padding */
     background: #000000;
-    background-image: url('/static/images/starry.jpg'); /* Starry background image */
+    background-image: url('/static/images/starry.jpg');
     background-size: cover;
     background-position: center;
     overflow: hidden;
@@ -552,31 +554,31 @@ text-decoration: none;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0) 70%); /* Adjusted the gradient stop */
-    z-index: 1;  /* Places the gradient above the background image but below the content */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0) 70%); 
+    z-index: 1; 
 }
 
-/* Gradient divider between About Us and Featured Articles */
+
 .about-us-section::after {
     content: '';
     position: absolute;
-    bottom: -1px;  /* Close the gap between the About Us section and the gradient divider */
+    bottom: -1px; 
     left: 0;
     width: 100%;
-    height: 120px; /* Slightly larger height for smoother transition */
-    background: linear-gradient(to top, #ffffff 0%, rgba(224, 224, 224, 0) 100%); /* Fixed gradient direction */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Adds a soft shadow for more depth */
+    height: 120px;
+    background: linear-gradient(to top, #ffffff 0%, rgba(224, 224, 224, 0) 100%); 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
 }
 
-/* Ensuring content is visible above the gradient */
+
 .section-content {
     position: relative;
-    z-index: 2;  /* Ensures the section content is above the gradient overlay */
+    z-index: 2;  
 }
 
 .featured-articles {
-    background: linear-gradient(to top, black, #ffffff); /* gradient starts from black at the footer */
-    padding-bottom: 400px; /* space before the footer */
+    background: linear-gradient(to top, black, #ffffff);
+    padding-bottom: 400px; 
 }
 
 footer {
@@ -741,12 +743,12 @@ footer {
 
     .team-member {
         padding: 15px;
-        box-shadow: none;  /* Remove box-shadow on mobile for simplicity */
+        box-shadow: none;  
     }
 
     .team-member iframe {
         margin-top: 5px;
-        height: 100px; /* Adjust iframe height on smaller screens */
+        height: 100px; 
     }
     .hero-title {
         font-size: 2.5rem;
@@ -755,12 +757,12 @@ footer {
         font-size: 1.2rem;
     }
     .cta-button {
-        padding: 1rem 2rem; /* Adjust button padding for small screens */
+        padding: 1rem 2rem; 
     }
     .articles-grid {
-        grid-template-columns: 1fr; /* Single column for smaller screens */
+        grid-template-columns: 1fr; 
     }
-    /* Top bar adjustments */
+    
     .logo-bar {
         padding: 1rem;
     }
@@ -797,6 +799,16 @@ footer {
         flex-direction: column; 
         align-items: center; 
     }
+    .about-us-images img{
+        width: 100%;
+    }
+
+    .articles-list {
+        display:flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
     body {
         padding-top: 6rem;
     }
@@ -866,4 +878,39 @@ footer {
 
 .articles-list a {
     text-decoration: none;
+}
+
+/* Language switcher styles */
+.language-switcher {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.language-switcher a {
+    width: 24px;
+    height: 16px;
+    display: inline-block;
+    background-size: cover;
+    border: none;
+    border-radius: 2px;
+    transition: transform 0.2s;
+}
+
+.language-switcher a:hover {
+    transform: scale(1.1);
+}
+
+.language-switcher .sk {
+    background-image: url('../images/sk.png');
+}
+
+.language-switcher .en {
+    background-image: url('../images/en.png');
+}
+
+@media (max-width: 768px) {
+    .language-switcher {
+        margin-left: 10px;
+    }
 }

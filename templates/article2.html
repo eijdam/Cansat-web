@@ -3,9 +3,10 @@
 {% block content %}
 <section class="content-wrapper">
     <div class="article-container">
-        <h2>Náš pokrok do 9.3.</h2>
+        <h2>{{ _('Náš pokrok do 9.3.') }}</h2>
         <div class="article-content">
             <p>
+                {% if session.get('language', 'sk') == 'sk' %}
                 Za posledné týždne sa nám podarilo značne pokročiť s vývojom nášho softvéru a hardvéru pre CanSat ale aj pozemnú stanicu.
                 <br><br>
                 Hlavné body nášho pokroku:
@@ -17,6 +18,19 @@
                     <li>Dokončený 3D model satelitu;</li>
                     <li>Prvá iterácia konštrukcie;</li>
                 </ul>
+                {% else %}
+                Over the past few weeks, we have made significant progress in developing our software and hardware for both CanSat and the ground station.
+                <br><br>
+                Main points of our progress:
+                <ul>
+                    <li>Website completed;</li>
+                    <li>Ground station visualization software rework from Python to C++ almost completed;</li>
+                    <li>AI for image data analysis;</li>
+                    <li>CanSat code in development;</li>
+                    <li>3D model of the satellite completed;</li>
+                    <li>First iteration of construction;</li>
+                </ul>
+                {% endif %}
             </p>
         </div>
     </div>

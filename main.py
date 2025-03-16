@@ -3,13 +3,24 @@ import re
 import os
 from flask_mail import Mail, Message
 from dotenv import load_dotenv
+from flask_babel import Babel, get_locale
 
 # Initialize the Flask app
 app = Flask(__name__)
-app.secret_key = os.getenv("SECRET_KEY", "your_secret_key")  # Better to use env var
+app.secret_key = os.getenv("SECRET_KEY", "your_secret_key")
 
 # Load environment variables
 load_dotenv()
+
+# Babel configuration
+def get_locale_from_session():
+    if 'language' in session:
+        return session['language']
+    return request.accept_languages.best_match(['sk', 'en'])
+
+babel = Babel(app, locale_selector=get_locale_from_session)
+app.config['BABEL_DEFAULT_LOCALE'] = 'sk'
+app.config['LANGUAGES'] = ['sk', 'en']
 
 # Mail configuration
 app.config["MAIL_SERVER"] = "smtp.gmail.com"
@@ -22,28 +33,62 @@ mail = Mail(app)
 
 EMAIL_REGEX = r"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
 
-# Static articles (list of dictionaries)
+@app.route('/set_language/<language>')
+def set_language(language):
+    if language in app.config['LANGUAGES']:
+        session['language'] = language
+    return redirect(request.referrer or url_for('home'))
+
+# Static articles with translations
 articles = [
-    {"id": 1, "title": "O nás", "content": "Predstavenie tímu a nášho projektu"},
-    {"id": 2, "title": "Náš progres", "content": "Náš pokrok do 9.3. "},
-    {"id": 3, "title": "Pripravujeme", "content": "Tento článok bude zverejnený čoskoro"}
+    {
+        "id": 1,
+        "title": {"sk": "O nás", "en": "About Us"},
+        "content": {"sk": "Predstavenie tímu a nášho projektu. Sme študentský tím zo SPŠE Zochova 9 v Bratislave, ktorý sa zúčastňuje súťaže CanSat. Náš projekt sa zameriava na vývoj miniatúrneho satelitu, ktorý bude zbierať dáta o zalesnení zeme.", 
+                   "en": "Introduction of our team and project. We are a student team from SPŠE Zochova 9 High School in Bratislava, participating in the CanSat competition. Our project focuses on developing a miniature satellite that will collect data regarding forest coverage of the Earth."}
+    },
+    {
+        "id": 2,
+        "title": {"sk": "Náš progres", "en": "Our Progress"},
+        "content": {"sk": "Náš pokrok do 9.3. Počas posledných týždňov sme dosiahli významný pokrok v našom projekte. Dokončili sme základný návrh hardvéru, začali sme s programovaním senzorov a vytvorili sme prvé prototypy našich systémov.", 
+                   "en": "Our progress until March 9. Over the past few weeks, we have made significant progress in our project. We completed the basic hardware design, started programming the sensors, and created the first prototypes of our systems."}
+    },
+    {
+        "id": 3,
+        "title": {"sk": "Pripravujeme", "en": "Coming Soon"},
+        "content": {"sk": "Tento článok bude zverejnený čoskoro. Sledujte náš blog pre najnovšie informácie o našom projekte a pripravovaných aktivitách.", 
+                   "en": "This article will be published soon. Follow our blog for the latest information about our project and upcoming activities."}
+    }
 ]
 
 # Routes
 @app.route("/")
 def home():
-    return render_template("index.html", articles=articles)
+    lang = str(get_locale())
+    translated_articles = [
+        {
+            "id": article["id"],
+            "title": article["title"][lang],
+            "content": article["content"][lang]
+        }
+        for article in articles
+    ]
+    return render_template("index.html", articles=translated_articles)
 
 @app.route("/clanky/<int:article_id>")
 def article(article_id):
-    # Find article by ID
+    lang = str(get_locale())
     article = next((a for a in articles if a["id"] == article_id), None)
     if article:
-        # For article 2, render a different template
+        translated_article = {
+            "id": article["id"],
+            "title": article["title"][lang],
+            "content": article["content"][lang]
+        }
         if article_id == 2:
-            return render_template("article2.html", article=article)
+            return render_template("article2.html", article=translated_article)
         else:
-            return render_template("article.html", article=article)
+            return render_template("article.html", article=translated_article)
     else:
         return "Article not found", 404
 
@@ -54,8 +99,16 @@ def kontakty():
 
 @app.route("/blog")
 def blog():
-    return render_template("blog.html", articles=articles)
-
+    lang = str(get_locale())
+    translated_articles = [
+        {
+            "id": article["id"],
+            "title": article["title"][lang],
+            "content": article["content"][lang]
+        }
+        for article in articles
+    ]
+    return render_template("blog.html", articles=translated_articles)
 
 @app.route("/tim")
 def tim():
@@ -73,26 +126,26 @@ def send_message():
         message_text = request.form.get("message", "").strip()
 
         if not all([name, email, message_text]):
-            session["message"] = "Všetky polia sú povinné."
+            session["message"] = "All fields are required."
             return redirect(url_for("kontakty"))
 
         if len(message_text) < 10:
-            session["message"] = "Správa musí mať aspoň 10 znakov."
+            session["message"] = "Message must be at least 10 characters long."
             return redirect(url_for("kontakty"))
 
         if not re.match(EMAIL_REGEX, email):
-            session["message"] = "Neplatný email."
+            session["message"] = "Invalid email address."
             return redirect(url_for("kontakty"))
 
-        msg = Message("Nová správa z kontaktného formulára",
+        msg = Message("New message from contact form",
                      recipients=["zochovaspaceagency@gmail.com"])
-        msg.body = f"Meno: {name}\nEmail: {email}\nSpráva:\n{message_text}"
+        msg.body = f"Name: {name}\nEmail: {email}\nMessage:\n{message_text}"
         mail.send(msg)
         
-        session["message"] = "Správa bola úspešne odoslaná."
+        session["message"] = "Message was sent successfully."
     except Exception as e:
         print(f"Error sending message: {str(e)}")
-        session["message"] = "Nastala chyba pri odosielaní správy."
+        session["message"] = "An error occurred while sending the message."
     
     return redirect(url_for("kontakty"))
 

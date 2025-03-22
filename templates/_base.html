@@ -38,10 +38,15 @@
                 </li>
             </ul>
             
+            <div class="language-switcher2">
+                <a href="{{ url_for('set_language', language='sk') }}" class="sk" title="Slovensky"></a>
+                <a href="{{ url_for('set_language', language='en') }}" class="en" title="English"></a>
+            </div>
             <!-- Mobile Menu Button -->
             <button class="mobile-menu-button" id="mobile-menu-toggle">
                 <i class="fas fa-bars"></i>
             </button>
+
         </div>
         
         <!-- Mobile Dropdown Menu -->
@@ -53,10 +58,6 @@
                 <li><a href="/blog">Blog</a></li>
                 <li style="display: flex; align-items: center; justify-content: center;">
                     <a href="/kontakty">{{ _('Kontakty') if session.get('language', 'sk') == 'sk' else 'Contact' }}</a>
-                    <div class="language-switcher">
-                        <a href="{{ url_for('set_language', language='sk') }}" class="sk" title="Slovensky"></a>
-                        <a href="{{ url_for('set_language', language='en') }}" class="en" title="English"></a>
-                    </div>
                 </li>
             </ul>
         </div>

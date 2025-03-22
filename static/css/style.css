@@ -731,8 +731,9 @@ footer {
     text-decoration: underline;
 }
 
-
-
+.language-switcher2 {
+    display: none; /* Hide by default */
+}
 /* Mobile adjustments (max-width: 768px) */
 @media (max-width: 768px) {
     .team-grid {
@@ -808,7 +809,30 @@ footer {
         flex-direction: column;
         gap: 20px;
     }
-
+    .language-switcher2 .sk {
+        background-image: url('../images/sk.png');
+    }
+    
+    .language-switcher2 .en {
+        background-image: url('../images/en.png');
+    }
+    .language-switcher2{
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        margin-left: 4rem;
+    }
+    .language-switcher2 a {
+        width: 30px;
+        height: 20px;
+        margin-top: 0.3rem;
+        display: inline-block;
+        background-size: cover;
+        border: none;
+        border-radius: 2px;
+        transition: transform 0.2s;
+    }
+    
     body {
         padding-top: 6rem;
     }
@@ -896,6 +920,7 @@ footer {
     border-radius: 2px;
     transition: transform 0.2s;
 }
+
 
 .language-switcher a:hover {
     transform: scale(1.1);
